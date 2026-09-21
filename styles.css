@@ -1,0 +1,838 @@
+/* ===== CSS Variables ===== */
+:root {
+    --bg-primary: #1a1a2e;
+    --bg-card: #16213e;
+    --accent: #e94560;
+    --text-primary: #ffffff;
+    --text-secondary: #a0a0c0;
+    --border-subtle: rgba(255, 255, 255, 0.1);
+    --shadow-card: 0 25px 80px rgba(0, 0, 0, 0.4);
+}
+
+/* ===== Reset & Base ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: var(--bg-primary);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+/* ===== Page Title ===== */
+.page-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 24px;
+    text-align: center;
+}
+
+.page-title span {
+    color: var(--accent);
+}
+
+/* ===== Slideshow Container ===== */
+.slideshow-container {
+    position: relative;
+    width: 90%;
+    max-width: 800px;
+    height: 500px;
+    background: var(--bg-card);
+    border-radius: 24px;
+    box-shadow: var(--shadow-card), 0 0 0 1px var(--border-subtle);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+/* ===== Slides ===== */
+.slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+    padding: 40px;
+    background: var(--bg-card);
+}
+
+.slide.active {
+    opacity: 1;
+}
+
+/* ===== Logo Container ===== */
+.logo-container {
+    width: 220px;
+    height: 220px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    border-radius: 20px;
+    padding: 20px;
+    transition: transform 0.5s ease;
+}
+
+.slide.active .logo-container {
+    animation: logoPop 0.6s ease;
+}
+
+@keyframes logoPop {
+    0% {
+        transform: scale(0.5);
+        opacity: 0;
+    }
+
+    60% {
+        transform: scale(1.1);
+    }
+
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.logo-container img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.3));
+}
+
+/* ===== Brand Text ===== */
+.brand-name {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: var(--text-primary);
+    margin-bottom: 8px;
+    text-align: center;
+    letter-spacing: -0.5px;
+}
+
+.brand-tagline {
+    font-size: 1rem;
+    color: var(--text-secondary);
+    margin-bottom: 24px;
+    text-align: center;
+    font-weight: 400;
+}
+
+/* ===== Phone Card ===== */
+.phone-card {
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid var(--border-subtle);
+    border-radius: 16px;
+    padding: 16px 32px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+}
+
+.phone-card:hover {
+    background: rgba(255, 255, 255, 0.12);
+    transform: translateY(-2px);
+}
+
+.phone-icon {
+    width: 40px;
+    height: 40px;
+    background: var(--accent);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.phone-icon svg {
+    width: 20px;
+    height: 20px;
+    fill: white;
+}
+
+.phone-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.phone-label {
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.phone-number {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    text-decoration: none;
+}
+
+.phone-number:hover {
+    color: var(--accent);
+}
+
+/* ===== Progress Bar ===== */
+.progress-bar {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 4px;
+    background: var(--accent);
+    width: 0%;
+    transition: width 0.1s linear;
+}
+
+/* ===== Dots Navigation ===== */
+.dots-container {
+    display: flex;
+    gap: 10px;
+    margin-top: 24px;
+    justify-content: center;
+}
+
+.dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.2);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.dot.active {
+    background: var(--accent);
+    width: 28px;
+    border-radius: 5px;
+}
+
+/* ===== Navigation Buttons ===== */
+.nav-buttons {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 16px;
+    pointer-events: none;
+}
+
+.nav-btn {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid var(--border-subtle);
+    color: var(--text-primary);
+    font-size: 1.2rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: all;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+}
+
+.nav-btn:hover {
+    background: rgba(233, 69, 96, 0.8);
+    border-color: var(--accent);
+}
+
+/* ===== Bottom Navigation ===== */
+.bottom-nav {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 64px;
+    background: var(--bg-card);
+    border-top: 1px solid var(--border-subtle);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 0 16px;
+    z-index: 100;
+    box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.nav-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    background: none;
+    border: none;
+    color: var(--text-secondary);
+    cursor: pointer;
+    padding: 8px 16px;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    flex: 1;
+    max-width: 80px;
+}
+
+.nav-item svg {
+    width: 24px;
+    height: 24px;
+    fill: currentColor;
+}
+
+.nav-item span {
+    font-size: 0.7rem;
+    font-weight: 600;
+}
+
+.nav-item:hover {
+    color: var(--text-primary);
+    background: rgba(255, 255, 255, 0.05);
+}
+
+
+/* ===== Section Panels ===== */
+.section-panel {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 64px;
+    background: var(--bg-primary);
+    z-index: 90;
+    transform: translateY(100%);
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    overflow-y: auto;
+    padding: 24px;
+}
+
+.section-panel.active {
+    transform: translateY(0);
+}
+
+.panel-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--border-subtle);
+}
+
+.panel-header h2 {
+    color: var(--text-primary);
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.close-panel {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid var(--border-subtle);
+    color: var(--text-primary);
+    font-size: 1.2rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.close-panel:hover {
+    background: var(--accent);
+    border-color: var(--accent);
+}
+
+/* ===== Brands Grid ===== */
+.brands-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 16px;
+}
+
+.brand-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-subtle);
+    border-radius: 16px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.brand-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--accent);
+    box-shadow: 0 8px 24px rgba(233, 69, 96, 0.15);
+}
+
+.brand-card img {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+}
+
+.brand-card span {
+    color: var(--text-primary);
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-align: center;
+}
+
+
+/* ===== Settings ===== */
+.settings-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.setting-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background: var(--bg-card);
+    border: 1px solid var(--border-subtle);
+    border-radius: 12px;
+    color: var(--text-primary);
+    font-weight: 600;
+}
+
+.setting-item select {
+    background: var(--bg-primary);
+    border: 1px solid var(--border-subtle);
+    border-radius: 8px;
+    color: var(--text-primary);
+    padding: 8px 12px;
+    font-family: 'Poppins', sans-serif;
+    cursor: pointer;
+}
+
+/* Toggle Switch */
+.toggle {
+    position: relative;
+    width: 48px;
+    height: 26px;
+}
+
+.toggle input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.toggle-slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--border-subtle);
+    border-radius: 26px;
+    transition: 0.3s;
+}
+
+.toggle-slider:before {
+    position: absolute;
+    content: "";
+    height: 20px;
+    width: 20px;
+    left: 3px;
+    bottom: 3px;
+    background: white;
+    border-radius: 50%;
+    transition: 0.3s;
+}
+
+.toggle input:checked+.toggle-slider {
+    background: var(--accent);
+}
+
+.toggle input:checked+.toggle-slider:before {
+    transform: translateX(22px);
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 600px) {
+    .slideshow-container {
+        height: 525px;
+        margin-bottom: -15px;
+    }
+
+    .brand-name {
+        font-size: 1.8rem;
+    }
+
+    .phone-number {
+        font-size: 1.1rem;
+    }
+
+    .logo-container {
+        width: 160px;
+        height: 160px;
+    }
+
+    .page-title {
+        margin-bottom: 16px;
+    }
+
+    .dots-container {
+        margin-bottom: 80px;
+    }
+}
+
+/* Hide bottom nav on very short screens in landscape */
+@media (max-height: 500px) and (orientation: landscape) {
+    .bottom-nav {
+        height: 48px;
+    }
+
+    .nav-item span {
+        display: none;
+    }
+
+    .section-panel {
+        bottom: 48px;
+    }
+}
+
+
+/* ===== Individual Brand Menu ===== */
+
+@keyframes menuFade {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ===== Food Card ===== */
+
+.food-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-subtle);
+    border-radius: 16px;
+    padding: 18px;
+    transition: all 0.3s ease;
+}
+
+.food-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--accent);
+    box-shadow: 0 8px 24px rgba(233, 69, 96, 0.15);
+}
+
+.food-image-placeholder {
+    width: 100%;
+    height: 120px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 3rem;
+
+    margin-bottom: 14px;
+}
+
+.food-card h4 {
+    color: var(--text-primary);
+    font-size: 1rem;
+    margin-bottom: 5px;
+}
+
+.food-card p {
+    color: var(--text-secondary);
+    font-size: 0.8rem;
+    margin-bottom: 10px;
+}
+
+.food-card span {
+    color: var(--accent);
+    font-weight: 700;
+    font-size: 1rem;
+}
+
+
+/* ===== About Us ===== */
+
+.about-content {
+    max-width: 650px;
+    margin: 40px auto;
+    text-align: center;
+
+    background: var(--bg-card);
+    border: 1px solid var(--border-subtle);
+    border-radius: 20px;
+
+    padding: 40px;
+}
+
+.about-icon {
+    font-size: 4rem;
+    margin-bottom: 16px;
+}
+
+.about-content h3 {
+    color: var(--text-primary);
+    font-size: 1.6rem;
+    margin-bottom: 16px;
+}
+
+.about-content p {
+    color: var(--text-secondary);
+    line-height: 1.8;
+    margin-bottom: 14px;
+}
+
+
+/* ===== Mobile Food Menu ===== */
+
+@media (max-width: 600px) {
+
+    .food-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+    }
+
+    .food-card {
+        padding: 12px;
+    }
+
+    .food-image-placeholder {
+        height: 100px;
+    }
+
+}
+
+.about-foodcourt-logo {
+    display: block;
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+    object-fit: contain;
+    margin: 0 auto 20px;
+}
+
+/* Mobile phones */
+@media (max-width: 600px) {
+    .about-foodcourt-logo {
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+        object-fit: contain;
+    }
+}
+
+/* =====================================================
+   STALL MENU GRID
+   ===================================================== */
+
+.menu-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+
+    width: 100%;
+    padding: 10px;
+
+    box-sizing: border-box;
+}
+
+
+/* =====================================================
+   MENU CARD
+   ===================================================== */
+
+.menu-card {
+    width: 100%;
+    text-align: center;
+
+    box-sizing: border-box;
+}
+
+
+/* =====================================================
+   STALL NAME
+   ===================================================== */
+
+.menu-card h3 {
+    margin: 0 0 10px;
+
+    font-size: 18px;
+    font-weight: 700;
+}
+
+
+/* =====================================================
+   MENU PREVIEW IMAGE
+   ===================================================== */
+
+.menu-card img {
+    display: block;
+
+    width: 100%;
+    height: 180px;
+
+    margin: 0 auto;
+
+    object-fit: contain;
+
+    border-radius: 10px;
+
+    cursor: pointer;
+
+    transition: transform 0.2s ease;
+}
+
+
+.menu-card img:hover {
+    transform: scale(1.02);
+}
+
+
+/* =====================================================
+   LARGE MENU IMAGE POPUP
+   ===================================================== */
+
+.menu-lightbox {
+    position: fixed;
+
+    top: 0;
+    left: 0;
+
+    width: 100vw;
+    height: 100vh;
+
+    display: none;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 30px;
+
+    box-sizing: border-box;
+
+    background: rgba(0, 0, 0, 0.85);
+
+    z-index: 99999;
+}
+
+
+/* Popup is visible */
+
+.menu-lightbox.active {
+    display: flex;
+}
+
+
+/* =====================================================
+   LARGE MENU IMAGE
+   ===================================================== */
+
+.menu-lightbox img {
+    display: block;
+
+    max-width: 95vw;
+    max-height: 90vh;
+
+    width: auto;
+    height: auto;
+
+    object-fit: contain;
+
+    border-radius: 10px;
+}
+
+
+/* =====================================================
+   CLOSE BUTTON
+   ===================================================== */
+
+.menu-lightbox-close {
+    position: absolute;
+
+    top: 20px;
+    right: 25px;
+
+    width: 45px;
+    height: 45px;
+
+    border: none;
+    border-radius: 50%;
+
+    background: rgba(0, 0, 0, 0.5);
+
+    color: white;
+
+    font-size: 25px;
+
+    cursor: pointer;
+
+    z-index: 100000;
+}
+
+
+/* =====================================================
+   MOBILE
+   ===================================================== */
+
+@media (max-width: 700px) {
+
+    .menu-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+    }
+
+    .menu-card h3 {
+        font-size: 14px;
+    }
+
+    .menu-card img {
+        height: 130px;
+    }
+
+}
+
+.mobile-break {
+    display: none;
+}
+
+@media (max-width: 800px) {
+    .mobile-break {
+        display: block;
+    }
+}
