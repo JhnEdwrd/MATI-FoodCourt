@@ -1,838 +1,1653 @@
-/* ===== CSS Variables ===== */
+/* =========================================================
+   MATI FOOD COURT
+   CLEAN WHITE + MATI BLUE DESIGN
+   ========================================================= */
+
+
+/* =========================================================
+   VARIABLES
+   ========================================================= */
+
 :root {
-    --bg-primary: #1a1a2e;
-    --bg-card: #16213e;
-    --accent: #e94560;
-    --text-primary: #ffffff;
-    --text-secondary: #a0a0c0;
-    --border-subtle: rgba(255, 255, 255, 0.1);
-    --shadow-card: 0 25px 80px rgba(0, 0, 0, 0.4);
+
+    --mati-blue: #0B4078;
+    --mati-blue-dark: #07345F;
+    --mati-blue-light: #EAF3FA;
+    --mati-blue-soft: #F3F8FC;
+
+    --white: #FFFFFF;
+
+    --text-primary: #102235;
+    --text-secondary: #64748B;
+    --text-muted: #94A3B8;
+
+    --border: #DCE6EF;
+
+    --shadow-soft:
+        0 12px 35px rgba(11, 64, 120, 0.10);
+
+    --shadow-card:
+        0 25px 65px rgba(11, 64, 120, 0.18);
+
+    --shadow-center:
+        0 30px 80px rgba(11, 64, 120, 0.22);
+
+    --nav-height: 72px;
+
 }
 
-/* ===== Reset & Base ===== */
+
+/* =========================================================
+   RESET
+   ========================================================= */
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-body {
-    font-family: 'Poppins', sans-serif;
-    background: var(--bg-primary);
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-}
 
-/* ===== Page Title ===== */
-.page-title {
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: var(--text-primary);
-    margin-bottom: 24px;
-    text-align: center;
-}
-
-.page-title span {
-    color: var(--accent);
-}
-
-/* ===== Slideshow Container ===== */
-.slideshow-container {
-    position: relative;
-    width: 90%;
-    max-width: 800px;
-    height: 500px;
-    background: var(--bg-card);
-    border-radius: 24px;
-    box-shadow: var(--shadow-card), 0 0 0 1px var(--border-subtle);
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-}
-
-/* ===== Slides ===== */
-.slide {
-    position: absolute;
-    top: 0;
-    left: 0;
+html {
     width: 100%;
     height: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    opacity: 0;
-    transition: opacity 1s ease-in-out;
-    padding: 40px;
-    background: var(--bg-card);
 }
 
-.slide.active {
-    opacity: 1;
-}
 
-/* ===== Logo Container ===== */
-.logo-container {
-    width: 220px;
-    height: 220px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 20px;
-    border-radius: 20px;
-    padding: 20px;
-    transition: transform 0.5s ease;
-}
+body {
 
-.slide.active .logo-container {
-    animation: logoPop 0.6s ease;
-}
-
-@keyframes logoPop {
-    0% {
-        transform: scale(0.5);
-        opacity: 0;
-    }
-
-    60% {
-        transform: scale(1.1);
-    }
-
-    100% {
-        transform: scale(1);
-        opacity: 1;
-    }
-}
-
-.logo-container img {
-    max-width: 100%;
-    max-height: 100%;
-    object-fit: contain;
-    filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.3));
-}
-
-/* ===== Brand Text ===== */
-.brand-name {
-    font-size: 2.5rem;
-    font-weight: 800;
-    color: var(--text-primary);
-    margin-bottom: 8px;
-    text-align: center;
-    letter-spacing: -0.5px;
-}
-
-.brand-tagline {
-    font-size: 1rem;
-    color: var(--text-secondary);
-    margin-bottom: 24px;
-    text-align: center;
-    font-weight: 400;
-}
-
-/* ===== Phone Card ===== */
-.phone-card {
-    background: rgba(255, 255, 255, 0.08);
-    border: 1px solid var(--border-subtle);
-    border-radius: 16px;
-    padding: 16px 32px;
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    backdrop-filter: blur(10px);
-    transition: all 0.3s ease;
-}
-
-.phone-card:hover {
-    background: rgba(255, 255, 255, 0.12);
-    transform: translateY(-2px);
-}
-
-.phone-icon {
-    width: 40px;
-    height: 40px;
-    background: var(--accent);
-    border-radius: 12px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-}
-
-.phone-icon svg {
-    width: 20px;
-    height: 20px;
-    fill: white;
-}
-
-.phone-info {
-    display: flex;
-    flex-direction: column;
-}
-
-.phone-label {
-    font-size: 0.75rem;
-    color: var(--text-secondary);
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
-
-.phone-number {
-    font-size: 1.4rem;
-    font-weight: 700;
-    color: var(--text-primary);
-    text-decoration: none;
-}
-
-.phone-number:hover {
-    color: var(--accent);
-}
-
-/* ===== Progress Bar ===== */
-.progress-bar {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    height: 4px;
-    background: var(--accent);
-    width: 0%;
-    transition: width 0.1s linear;
-}
-
-/* ===== Dots Navigation ===== */
-.dots-container {
-    display: flex;
-    gap: 10px;
-    margin-top: 24px;
-    justify-content: center;
-}
-
-.dot {
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    background: rgba(255, 255, 255, 0.2);
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-
-.dot.active {
-    background: var(--accent);
-    width: 28px;
-    border-radius: 5px;
-}
-
-/* ===== Navigation Buttons ===== */
-.nav-buttons {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
     width: 100%;
-    display: flex;
-    justify-content: space-between;
-    padding: 0 16px;
-    pointer-events: none;
-}
+    min-height: 100%;
 
-.nav-btn {
-    width: 44px;
-    height: 44px;
-    border-radius: 50%;
-    background: rgba(255, 255, 255, 0.1);
-    border: 1px solid var(--border-subtle);
-    color: var(--text-primary);
-    font-size: 1.2rem;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    pointer-events: all;
-    transition: all 0.3s ease;
-    backdrop-filter: blur(10px);
-}
-
-.nav-btn:hover {
-    background: rgba(233, 69, 96, 0.8);
-    border-color: var(--accent);
-}
-
-/* ===== Bottom Navigation ===== */
-.bottom-nav {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 64px;
-    background: var(--bg-card);
-    border-top: 1px solid var(--border-subtle);
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    padding: 0 16px;
-    z-index: 100;
-    box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.3);
-}
-
-.nav-item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 4px;
-    background: none;
-    border: none;
-    color: var(--text-secondary);
-    cursor: pointer;
-    padding: 8px 16px;
-    border-radius: 12px;
-    transition: all 0.3s ease;
-    flex: 1;
-    max-width: 80px;
-}
-
-.nav-item svg {
-    width: 24px;
-    height: 24px;
-    fill: currentColor;
-}
-
-.nav-item span {
-    font-size: 0.7rem;
-    font-weight: 600;
-}
-
-.nav-item:hover {
-    color: var(--text-primary);
-    background: rgba(255, 255, 255, 0.05);
-}
-
-
-/* ===== Section Panels ===== */
-.section-panel {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 64px;
-    background: var(--bg-primary);
-    z-index: 90;
-    transform: translateY(100%);
-    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    overflow-y: auto;
-    padding: 24px;
-}
-
-.section-panel.active {
-    transform: translateY(0);
-}
-
-.panel-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 24px;
-    padding-bottom: 16px;
-    border-bottom: 1px solid var(--border-subtle);
-}
-
-.panel-header h2 {
-    color: var(--text-primary);
-    font-size: 1.5rem;
-    font-weight: 700;
-}
-
-.close-panel {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    background: rgba(255, 255, 255, 0.08);
-    border: 1px solid var(--border-subtle);
-    color: var(--text-primary);
-    font-size: 1.2rem;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: all 0.3s ease;
-}
-
-.close-panel:hover {
-    background: var(--accent);
-    border-color: var(--accent);
-}
-
-/* ===== Brands Grid ===== */
-.brands-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
-    gap: 16px;
-}
-
-.brand-card {
-    background: var(--bg-card);
-    border: 1px solid var(--border-subtle);
-    border-radius: 16px;
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 12px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-
-.brand-card:hover {
-    transform: translateY(-4px);
-    border-color: var(--accent);
-    box-shadow: 0 8px 24px rgba(233, 69, 96, 0.15);
-}
-
-.brand-card img {
-    width: 80px;
-    height: 80px;
-    object-fit: contain;
-}
-
-.brand-card span {
-    color: var(--text-primary);
-    font-size: 0.85rem;
-    font-weight: 600;
-    text-align: center;
-}
-
-
-/* ===== Settings ===== */
-.settings-list {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-}
-
-.setting-item {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px;
-    background: var(--bg-card);
-    border: 1px solid var(--border-subtle);
-    border-radius: 12px;
-    color: var(--text-primary);
-    font-weight: 600;
-}
-
-.setting-item select {
-    background: var(--bg-primary);
-    border: 1px solid var(--border-subtle);
-    border-radius: 8px;
-    color: var(--text-primary);
-    padding: 8px 12px;
     font-family: 'Poppins', sans-serif;
-    cursor: pointer;
+
+    background: #FFFFFF;
+
+    color: var(--text-primary);
+
+    overflow: hidden;
+
+    -webkit-font-smoothing: antialiased;
+
 }
 
-/* Toggle Switch */
-.toggle {
+
+button {
+    font-family: inherit;
+}
+
+
+/* =========================================================
+   APP
+   ========================================================= */
+
+.app {
+
     position: relative;
-    width: 48px;
-    height: 26px;
-}
 
-.toggle input {
-    opacity: 0;
-    width: 0;
-    height: 0;
-}
-
-.toggle-slider {
-    position: absolute;
-    cursor: pointer;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: var(--border-subtle);
-    border-radius: 26px;
-    transition: 0.3s;
-}
-
-.toggle-slider:before {
-    position: absolute;
-    content: "";
-    height: 20px;
-    width: 20px;
-    left: 3px;
-    bottom: 3px;
-    background: white;
-    border-radius: 50%;
-    transition: 0.3s;
-}
-
-.toggle input:checked+.toggle-slider {
-    background: var(--accent);
-}
-
-.toggle input:checked+.toggle-slider:before {
-    transform: translateX(22px);
-}
-
-/* ===== Responsive ===== */
-@media (max-width: 600px) {
-    .slideshow-container {
-        height: 525px;
-        margin-bottom: -15px;
-    }
-
-    .brand-name {
-        font-size: 1.8rem;
-    }
-
-    .phone-number {
-        font-size: 1.1rem;
-    }
-
-    .logo-container {
-        width: 160px;
-        height: 160px;
-    }
-
-    .page-title {
-        margin-bottom: 16px;
-    }
-
-    .dots-container {
-        margin-bottom: 80px;
-    }
-}
-
-/* Hide bottom nav on very short screens in landscape */
-@media (max-height: 500px) and (orientation: landscape) {
-    .bottom-nav {
-        height: 48px;
-    }
-
-    .nav-item span {
-        display: none;
-    }
-
-    .section-panel {
-        bottom: 48px;
-    }
-}
-
-
-/* ===== Individual Brand Menu ===== */
-
-@keyframes menuFade {
-    from {
-        opacity: 0;
-        transform: translateY(10px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-/* ===== Food Card ===== */
-
-.food-card {
-    background: var(--bg-card);
-    border: 1px solid var(--border-subtle);
-    border-radius: 16px;
-    padding: 18px;
-    transition: all 0.3s ease;
-}
-
-.food-card:hover {
-    transform: translateY(-4px);
-    border-color: var(--accent);
-    box-shadow: 0 8px 24px rgba(233, 69, 96, 0.15);
-}
-
-.food-image-placeholder {
     width: 100%;
-    height: 120px;
-    background: rgba(255, 255, 255, 0.05);
-    border-radius: 12px;
+    height: 100vh;
+    height: 100dvh;
+
+    min-height: 560px;
 
     display: flex;
-    align-items: center;
-    justify-content: center;
-
-    font-size: 3rem;
-
-    margin-bottom: 14px;
-}
-
-.food-card h4 {
-    color: var(--text-primary);
-    font-size: 1rem;
-    margin-bottom: 5px;
-}
-
-.food-card p {
-    color: var(--text-secondary);
-    font-size: 0.8rem;
-    margin-bottom: 10px;
-}
-
-.food-card span {
-    color: var(--accent);
-    font-weight: 700;
-    font-size: 1rem;
-}
-
-
-/* ===== About Us ===== */
-
-.about-content {
-    max-width: 650px;
-    margin: 40px auto;
-    text-align: center;
-
-    background: var(--bg-card);
-    border: 1px solid var(--border-subtle);
-    border-radius: 20px;
-
-    padding: 40px;
-}
-
-.about-icon {
-    font-size: 4rem;
-    margin-bottom: 16px;
-}
-
-.about-content h3 {
-    color: var(--text-primary);
-    font-size: 1.6rem;
-    margin-bottom: 16px;
-}
-
-.about-content p {
-    color: var(--text-secondary);
-    line-height: 1.8;
-    margin-bottom: 14px;
-}
-
-
-/* ===== Mobile Food Menu ===== */
-
-@media (max-width: 600px) {
-
-    .food-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 12px;
-    }
-
-    .food-card {
-        padding: 12px;
-    }
-
-    .food-image-placeholder {
-        height: 100px;
-    }
-
-}
-
-.about-foodcourt-logo {
-    display: block;
-    width: 100%;
-    max-width: 500px;
-    height: auto;
-    object-fit: contain;
-    margin: 0 auto 20px;
-}
-
-/* Mobile phones */
-@media (max-width: 600px) {
-    .about-foodcourt-logo {
-        width: 100%;
-        max-width: 100%;
-        height: auto;
-        object-fit: contain;
-    }
-}
-
-/* =====================================================
-   STALL MENU GRID
-   ===================================================== */
-
-.menu-grid {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 20px;
-
-    width: 100%;
-    padding: 10px;
-
-    box-sizing: border-box;
-}
-
-
-/* =====================================================
-   MENU CARD
-   ===================================================== */
-
-.menu-card {
-    width: 100%;
-    text-align: center;
-
-    box-sizing: border-box;
-}
-
-
-/* =====================================================
-   STALL NAME
-   ===================================================== */
-
-.menu-card h3 {
-    margin: 0 0 10px;
-
-    font-size: 18px;
-    font-weight: 700;
-}
-
-
-/* =====================================================
-   MENU PREVIEW IMAGE
-   ===================================================== */
-
-.menu-card img {
-    display: block;
-
-    width: 100%;
-    height: 180px;
-
-    margin: 0 auto;
-
-    object-fit: contain;
-
-    border-radius: 10px;
-
-    cursor: pointer;
-
-    transition: transform 0.2s ease;
-}
-
-
-.menu-card img:hover {
-    transform: scale(1.02);
-}
-
-
-/* =====================================================
-   LARGE MENU IMAGE POPUP
-   ===================================================== */
-
-.menu-lightbox {
-    position: fixed;
-
-    top: 0;
-    left: 0;
-
-    width: 100vw;
-    height: 100vh;
-
-    display: none;
+    flex-direction: column;
 
     align-items: center;
+
+    background:
+        radial-gradient(
+            circle at 50% 38%,
+            rgba(11, 64, 120, 0.055),
+            transparent 40%
+        ),
+        #FFFFFF;
+
+    overflow: hidden;
+
+}
+
+
+/* =========================================================
+   HEADER
+   ========================================================= */
+
+.app-header {
+
+    position: relative;
+
+    width: 100%;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
     justify-content: center;
+
+    padding-top: clamp(18px, 3vh, 34px);
+
+    z-index: 20;
+
+}
+
+
+.brand-header {
+
+    display: flex;
+
+    align-items: baseline;
+
+    gap: 9px;
+
+    color: var(--mati-blue);
+
+}
+
+
+.brand-header-main {
+
+    font-size: clamp(1.35rem, 3vw, 1.9rem);
+
+    font-weight: 800;
+
+    letter-spacing: 2px;
+
+}
+
+
+.brand-header-sub {
+
+    font-size: clamp(0.72rem, 1.6vw, 0.95rem);
+
+    font-weight: 700;
+
+    letter-spacing: 2px;
+
+    color: var(--text-secondary);
+
+}
+
+
+.view-label {
+
+    margin-top: 4px;
+
+    font-size: 0.68rem;
+
+    font-weight: 700;
+
+    letter-spacing: 2.2px;
+
+    color: var(--mati-blue);
+
+}
+
+
+/* =========================================================
+   CAROUSEL AREA
+   ========================================================= */
+
+.carousel-area {
+
+    position: relative;
+
+    width: min(1200px, 100%);
+
+    flex: 1;
+
+    min-height: 0;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    overflow: hidden;
+
+    touch-action: pan-y;
+
+    user-select: none;
+
+    cursor: grab;
+
+}
+
+
+.carousel-area.dragging {
+    cursor: grabbing;
+}
+
+
+/* =========================================================
+   CAROUSEL VIEWPORT
+   ========================================================= */
+
+.carousel-viewport {
+
+    position: relative;
+
+    width: 100%;
+
+    height: 100%;
+
+    overflow: visible;
+
+    perspective: 1500px;
+
+    perspective-origin: center center;
+
+}
+
+
+.carousel-track {
+
+    position: absolute;
+
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    transform-style: preserve-3d;
+
+}
+
+
+/* =========================================================
+   CAROUSEL CARD
+   ========================================================= */
+
+.carousel-card {
+    position: absolute;
+
+    left: 50%;
+    top: 50%;
+
+    width: min(390px, 68vw);
+    height: min(485px, 68vh);
+    min-height: 410px;
 
     padding: 30px;
 
-    box-sizing: border-box;
-
-    background: rgba(0, 0, 0, 0.85);
-
-    z-index: 99999;
-}
-
-
-/* Popup is visible */
-
-.menu-lightbox.active {
     display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+
+    border-radius: 30px;
+
+    background: #FFFFFF;
+
+    border: 1px solid var(--border);
+
+    box-shadow: var(--shadow-card);
+
+    /*
+       IMPORTANT:
+       Keep the card in 3D space,
+       but don't blur the entire card.
+    */
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
+
+    /*
+       Helps browsers keep the card crisp
+       during transform animation.
+    */
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+
+    will-change: transform, opacity;
+
+    transform:
+        translate3d(
+            calc(-50% + var(--x)),
+            -50%,
+            var(--z)
+        )
+        rotateY(var(--rotate))
+        scale(var(--scale));
+
+    opacity: var(--opacity);
+
+    /*
+       REMOVE filter: blur(var(--blur))
+       from here.
+    */
+
+    transition:
+        transform 0.62s cubic-bezier(.22,.61,.36,1),
+        opacity 0.48s ease,
+        box-shadow 0.48s ease,
+        border-color 0.48s ease;
+
+    isolation: auto;
 }
 
 
-/* =====================================================
-   LARGE MENU IMAGE
-   ===================================================== */
+/* =========================================================
+   CENTER CARD
+   ========================================================= */
 
-.menu-lightbox img {
+.carousel-card.center {
+    opacity: 1 !important;
+
+    filter: none !important;
+
+    transform:
+        translate3d(
+            calc(-50% + var(--x)),
+            -50%,
+            var(--z)
+        )
+        rotateY(0deg)
+        scale(1);
+
+    -webkit-font-smoothing: antialiased;
+    text-rendering: geometricPrecision;
+
+    box-shadow:
+        0 30px 80px rgba(11, 64, 120, 0.22);
+
+    border-color:
+        rgba(11, 64, 120, 0.22);
+
+    z-index: 100 !important;
+}
+
+/* =========================================================
+   LOGO
+   ========================================================= */
+
+.logo-container {
+
+    width: 225px;
+    height: 205px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    margin-bottom: 17px;
+
+    padding: 12px;
+
+}
+
+
+.logo-container img {
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: contain;
+
+    filter:
+        drop-shadow(
+            0 8px 16px
+            rgba(11, 64, 120, 0.12)
+        );
+
+    pointer-events: none;
+
+}
+
+
+/* =========================================================
+   BRAND NAME
+   ========================================================= */
+
+.brand-name {
+
+    color: var(--text-primary);
+
+    font-size: clamp(1.45rem, 3vw, 2.15rem);
+
+    font-weight: 800;
+
+    line-height: 1.12;
+
+    margin-bottom: 7px;
+
+    max-width: 330px;
+
+}
+
+
+/* =========================================================
+   TAGLINE
+   ========================================================= */
+
+.brand-tagline {
+
+    color: var(--text-secondary);
+
+    font-size: 0.86rem;
+
+    line-height: 1.5;
+
+    min-height: 26px;
+
+    margin-bottom: 18px;
+
+}
+
+
+/* =========================================================
+   STALL INFO
+   ========================================================= */
+
+.phone-card {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 11px;
+
+    width: min(300px, 100%);
+
+    padding: 11px 16px;
+
+    text-align: left;
+
+    background: var(--mati-blue-soft);
+
+    border: 1px solid rgba(11, 64, 120, 0.12);
+
+    border-radius: 15px;
+
+}
+
+
+.phone-icon {
+
+    width: 38px;
+    height: 38px;
+
+    flex: 0 0 38px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    background: var(--mati-blue);
+
+    border-radius: 11px;
+
+}
+
+
+.phone-icon svg {
+
+    width: 18px;
+    height: 18px;
+
+    fill: #FFFFFF;
+
+}
+
+
+.phone-info {
+
+    display: flex;
+
+    flex-direction: column;
+
+    min-width: 0;
+
+}
+
+
+.phone-label {
+
+    color: var(--mati-blue);
+
+    font-size: 0.59rem;
+
+    font-weight: 700;
+
+    letter-spacing: 1.2px;
+
+    text-transform: uppercase;
+
+}
+
+
+.phone-number {
+
+    color: var(--text-primary);
+
+    font-size: 0.84rem;
+
+    font-weight: 700;
+
+    white-space: nowrap;
+
+    overflow: hidden;
+
+    text-overflow: ellipsis;
+
+}
+
+
+/* =========================================================
+   VIEW MENU BUTTON
+   ========================================================= */
+
+.view-menu-btn {
+
+    margin-top: 14px;
+
+    padding: 9px 18px;
+
+    border: none;
+
+    border-radius: 999px;
+
+    background: var(--mati-blue);
+
+    color: white;
+
+    font-size: 0.72rem;
+
+    font-weight: 700;
+
+    letter-spacing: 0.4px;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 7px 18px rgba(11, 64, 120, 0.20);
+
+    transition:
+        transform 0.2s ease,
+        background 0.2s ease;
+
+}
+
+
+.view-menu-btn:hover {
+
+    background: var(--mati-blue-dark);
+
+    transform: translateY(-2px);
+
+}
+
+
+.view-menu-btn:active {
+    transform: translateY(0);
+}
+
+
+/* =========================================================
+   MENU CARDS
+   ========================================================= */
+
+.carousel-card.menu-mode {
+
+    padding: 24px;
+
+}
+
+
+.menu-preview {
+
+    width: 100%;
+
+    height: 325px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    margin-bottom: 18px;
+
+    overflow: hidden;
+
+    border-radius: 18px;
+
+    background: #F6F9FC;
+
+    border: 1px solid var(--border);
+
+}
+
+
+.menu-preview img {
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: contain;
+
+    pointer-events: none;
+
+}
+
+
+.menu-brand-name {
+
+    color: var(--mati-blue);
+
+    font-size: 1.05rem;
+
+    font-weight: 800;
+
+    line-height: 1.25;
+
+    margin-bottom: 4px;
+
+}
+
+
+.menu-action {
+
+    margin-top: 12px;
+
+    border: none;
+
+    background: transparent;
+
+    color: var(--mati-blue);
+
+    font-size: 0.72rem;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+}
+
+
+/* =========================================================
+   CAROUSEL ARROWS
+   ========================================================= */
+
+.carousel-nav {
+
+    position: absolute;
+
+    left: 0;
+    right: 0;
+
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    padding: 0 clamp(10px, 3vw, 30px);
+
+    pointer-events: none;
+
+    z-index: 500;
+
+}
+
+
+.carousel-arrow {
+
+    width: 46px;
+    height: 46px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    border: 1px solid rgba(11, 64, 120, 0.15);
+
+    background:
+        rgba(255,255,255,0.92);
+
+    color: var(--mati-blue);
+
+    font-size: 1.15rem;
+
+    cursor: pointer;
+
+    pointer-events: auto;
+
+    box-shadow:
+        0 8px 25px rgba(11, 64, 120, 0.12);
+
+    transition:
+        transform 0.2s ease,
+        background 0.2s ease,
+        color 0.2s ease;
+
+}
+
+
+.carousel-arrow:hover {
+
+    background: var(--mati-blue);
+
+    color: #FFFFFF;
+
+    transform: scale(1.06);
+
+}
+
+
+/* =========================================================
+   PROGRESS
+   ========================================================= */
+
+.progress-bar {
+
+    position: absolute;
+
+    bottom: 0;
+
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    width: min(350px, 55%);
+
+    height: 3px;
+
+    background: var(--mati-blue);
+
+    border-radius: 99px;
+
+    transform-origin: center;
+
+    z-index: 600;
+
+    transition: width 0.1s linear;
+
+}
+
+
+/* =========================================================
+   DOTS
+   ========================================================= */
+
+.dots-container {
+
+    position: relative;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 7px;
+
+    min-height: 28px;
+
+    margin-bottom: 8px;
+
+    z-index: 30;
+
+}
+
+
+.dot {
+
+    width: 7px;
+    height: 7px;
+
+    border: none;
+
+    padding: 0;
+
+    border-radius: 50%;
+
+    background: #C8D5E1;
+
+    cursor: pointer;
+
+    transition:
+        width 0.25s ease,
+        background 0.25s ease,
+        transform 0.25s ease;
+
+}
+
+
+.dot:hover {
+    transform: scale(1.25);
+}
+
+
+.dot.active {
+
+    width: 25px;
+
+    border-radius: 99px;
+
+    background: var(--mati-blue);
+
+}
+
+
+/* =========================================================
+   BOTTOM NAVIGATION
+   ========================================================= */
+
+.bottom-nav {
+
+    position: relative;
+
+    width: 100%;
+
+    height: var(--nav-height);
+
+    flex: 0 0 var(--nav-height);
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 8px;
+
+    padding:
+        6px max(16px, env(safe-area-inset-left))
+        calc(6px + env(safe-area-inset-bottom))
+        max(16px, env(safe-area-inset-right));
+
+    background: rgba(255,255,255,0.97);
+
+    border-top: 1px solid var(--border);
+
+    box-shadow:
+        0 -8px 30px rgba(11, 64, 120, 0.06);
+
+    z-index: 1000;
+
+}
+
+
+.nav-item {
+
+    width: min(120px, 30vw);
+
+    height: 54px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 3px;
+
+    border: none;
+
+    border-radius: 14px;
+
+    background: transparent;
+
+    color: var(--text-muted);
+
+    cursor: pointer;
+
+    transition:
+        color 0.25s ease,
+        background 0.25s ease,
+        transform 0.25s ease;
+
+}
+
+
+.nav-item svg {
+
+    width: 22px;
+    height: 22px;
+
+    fill: currentColor;
+
+}
+
+
+.nav-item span {
+
+    font-size: 0.64rem;
+
+    font-weight: 700;
+
+}
+
+
+.nav-item:hover {
+
+    color: var(--mati-blue);
+
+    background: var(--mati-blue-soft);
+
+}
+
+
+.nav-item.active {
+
+    color: var(--mati-blue);
+
+    background: var(--mati-blue-light);
+
+}
+
+
+/* =========================================================
+   ABOUT PANEL
+   ========================================================= */
+
+.about-panel {
+
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 900;
+
+    background: #FFFFFF;
+
+    transform: translateY(100%);
+
+    transition:
+        transform 0.45s cubic-bezier(.22,.61,.36,1);
+
+    overflow-y: auto;
+
+    padding-bottom: calc(
+        var(--nav-height) +
+        env(safe-area-inset-bottom)
+    );
+
+}
+
+
+.about-panel.active {
+    transform: translateY(0);
+}
+
+
+.panel-inner {
+
+    width: min(850px, 100%);
+
+    margin: 0 auto;
+
+    padding:
+        28px 22px 40px;
+
+}
+
+
+.panel-header {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    padding-bottom: 18px;
+
+    border-bottom: 1px solid var(--border);
+
+}
+
+
+.panel-eyebrow {
+
+    color: var(--mati-blue);
+
+    font-size: 0.65rem;
+
+    font-weight: 800;
+
+    letter-spacing: 2px;
+
+}
+
+
+.panel-header h2 {
+
+    color: var(--text-primary);
+
+    font-size: 1.55rem;
+
+    font-weight: 800;
+
+}
+
+
+.close-panel {
+
+    width: 42px;
+    height: 42px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    border: 1px solid var(--border);
+
+    background: #FFFFFF;
+
+    color: var(--mati-blue);
+
+    font-size: 1.1rem;
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s ease,
+        color 0.2s ease;
+
+}
+
+
+.close-panel:hover {
+
+    background: var(--mati-blue);
+
+    color: #FFFFFF;
+
+}
+
+
+.about-card {
+
+    max-width: 680px;
+
+    margin: 40px auto;
+
+    padding: clamp(25px, 5vw, 50px);
+
+    text-align: center;
+
+    background:
+        linear-gradient(
+            145deg,
+            #FFFFFF,
+            var(--mati-blue-soft)
+        );
+
+    border: 1px solid var(--border);
+
+    border-radius: 28px;
+
+    box-shadow: var(--shadow-soft);
+
+}
+
+
+.about-foodcourt-logo {
+
     display: block;
 
-    max-width: 95vw;
-    max-height: 90vh;
+    width: 100%;
+
+    max-width: 480px;
+
+    height: auto;
+
+    margin: 0 auto 30px;
+
+    object-fit: contain;
+
+}
+
+
+.about-card p {
+
+    color: var(--text-secondary);
+
+    font-size: 0.95rem;
+
+    line-height: 1.8;
+
+    margin-bottom: 15px;
+
+}
+
+
+/* =========================================================
+   MENU LIGHTBOX
+   ========================================================= */
+
+.menu-lightbox {
+
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 9999;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 25px;
+
+    background:
+        rgba(7, 32, 55, 0.90);
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    pointer-events: none;
+
+    transition:
+        opacity 0.25s ease,
+        visibility 0.25s ease;
+
+}
+
+
+.menu-lightbox.active {
+
+    opacity: 1;
+
+    visibility: visible;
+
+    pointer-events: auto;
+
+}
+
+
+.lightbox-content {
+
+    width: min(1000px, 94vw);
+
+    height: min(90vh, 850px);
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+}
+
+
+.lightbox-title {
+
+    color: #FFFFFF;
+
+    font-size: 1rem;
+
+    font-weight: 700;
+
+    margin-bottom: 12px;
+
+    text-align: center;
+
+}
+
+
+.menu-lightbox img {
+
+    display: block;
+
+    max-width: 100%;
+
+    max-height: calc(100% - 45px);
 
     width: auto;
+
     height: auto;
 
     object-fit: contain;
 
-    border-radius: 10px;
+    border-radius: 12px;
+
+    box-shadow:
+        0 25px 80px rgba(0,0,0,0.35);
+
 }
 
 
-/* =====================================================
-   CLOSE BUTTON
-   ===================================================== */
-
 .menu-lightbox-close {
+
     position: absolute;
 
     top: 20px;
-    right: 25px;
+    right: 20px;
 
     width: 45px;
     height: 45px;
 
-    border: none;
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid rgba(255,255,255,0.3);
+
     border-radius: 50%;
 
-    background: rgba(0, 0, 0, 0.5);
+    background:
+        rgba(255,255,255,0.12);
 
-    color: white;
+    color: #FFFFFF;
 
-    font-size: 25px;
+    font-size: 1.15rem;
 
     cursor: pointer;
 
-    z-index: 100000;
 }
 
 
-/* =====================================================
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+    .carousel-card {
+
+        width: min(360px, 64vw);
+
+    }
+
+    .carousel-arrow {
+
+        width: 42px;
+        height: 42px;
+
+    }
+
+}
+
+
+/* =========================================================
    MOBILE
-   ===================================================== */
+   ========================================================= */
 
 @media (max-width: 700px) {
 
-    .menu-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 12px;
+    :root {
+        --nav-height: 68px;
     }
 
-    .menu-card h3 {
-        font-size: 14px;
+
+    .app-header {
+
+        padding-top: 15px;
+
     }
 
-    .menu-card img {
+
+    .carousel-area {
+
+        min-height: 0;
+
+    }
+
+
+	.carousel-card {
+
+		width: min(310px, 76vw);
+
+		height: min(425px, 59vh);
+
+		min-height: 360px;
+
+		padding: 22px 18px;
+
+		border-radius: 25px;
+
+		/*
+		   Keep the rendering crisp.
+		*/
+		-webkit-font-smoothing: antialiased;
+
+	}
+
+
+    .carousel-card::before {
+
+        top: 20px;
+        bottom: 20px;
+
+        width: 3px;
+
+    }
+
+
+    .logo-container {
+
+        width: 165px;
+        height: 155px;
+
+        margin-bottom: 11px;
+
+    }
+
+
+    .brand-name {
+
+        font-size: 1.55rem;
+
+    }
+
+
+    .brand-tagline {
+
+        font-size: 0.72rem;
+
+        margin-bottom: 13px;
+
+    }
+
+
+    .phone-card {
+
+        width: 100%;
+
+        padding: 9px 12px;
+
+    }
+
+
+    .phone-icon {
+
+        width: 34px;
+        height: 34px;
+
+        flex-basis: 34px;
+
+    }
+
+
+    .phone-number {
+
+        font-size: 0.72rem;
+
+    }
+
+
+    .phone-label {
+
+        font-size: 0.52rem;
+
+    }
+
+
+    .view-menu-btn {
+
+        padding: 8px 15px;
+
+        font-size: 0.66rem;
+
+    }
+
+
+    .menu-preview {
+
+        height: 270px;
+
+        margin-bottom: 12px;
+
+    }
+
+
+    .menu-brand-name {
+
+        font-size: 0.88rem;
+
+    }
+
+
+    .carousel-arrow {
+
+        width: 37px;
+        height: 37px;
+
+        font-size: 0.95rem;
+
+    }
+
+
+    .carousel-nav {
+
+        padding: 0 8px;
+
+    }
+
+
+    .progress-bar {
+
+        width: 45%;
+
+    }
+
+
+    .dots-container {
+
+        margin-bottom: 2px;
+
+    }
+
+
+    .dot {
+
+        width: 6px;
+        height: 6px;
+
+    }
+
+
+    .dot.active {
+
+        width: 20px;
+
+    }
+
+
+    .about-card {
+
+        margin-top: 25px;
+
+    }
+
+}
+
+
+/* =========================================================
+   SMALL PHONES
+   ========================================================= */
+
+@media (max-width: 400px) {
+
+    .carousel-card {
+
+        width: 78vw;
+
+        height: 400px;
+
+    }
+
+
+    .logo-container {
+
+        width: 140px;
         height: 130px;
+
+    }
+
+
+    .brand-name {
+
+        font-size: 1.35rem;
+
+    }
+
+
+    .brand-tagline {
+
+        font-size: 0.68rem;
+
+    }
+
+
+    .menu-preview {
+
+        height: 240px;
+
     }
 
 }
 
-.mobile-break {
-    display: none;
+
+/* =========================================================
+   SHORT LANDSCAPE
+   ========================================================= */
+
+@media (
+    max-height: 650px
+) and (
+    orientation: landscape
+) {
+
+    .app-header {
+
+        padding-top: 8px;
+
+    }
+
+
+    .logo-container {
+
+        width: 130px;
+        height: 115px;
+
+        margin-bottom: 7px;
+
+    }
+
+
+    .carousel-card {
+
+        height: 330px;
+
+        min-height: 300px;
+
+    }
+
+
+    .brand-name {
+
+        font-size: 1.35rem;
+
+    }
+
+
+    .brand-tagline {
+
+        margin-bottom: 8px;
+
+    }
+
+
+    .bottom-nav {
+
+        height: 55px;
+
+    }
+
 }
 
-@media (max-width: 800px) {
-    .mobile-break {
-        display: block;
+
+/* =========================================================
+   REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .carousel-card {
+
+        transition:
+            opacity 0.2s ease;
+
     }
+
+    .about-panel {
+
+        transition: none;
+
+    }
+
+}
+
+/* =========================================================
+   TEXT SHARPNESS FIX
+   ========================================================= */
+
+/* Never blur the actual carousel content */
+.carousel-card {
+    filter: none !important;
+
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+
+    text-rendering: optimizeLegibility;
+}
+
+
+/* Keep the center card completely sharp */
+.carousel-card.center {
+    filter: none !important;
+    opacity: 1 !important;
+}
+
+
+/* Keep all text sharp */
+.carousel-card .brand-name,
+.carousel-card .brand-tagline,
+.carousel-card .phone-card,
+.carousel-card .phone-info,
+.carousel-card .phone-label,
+.carousel-card .phone-number,
+.carousel-card .view-menu-btn,
+.carousel-card .menu-brand-name,
+.carousel-card .menu-action {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+
+    text-rendering: optimizeLegibility;
+	transform: translateZ(0);
+}
+}
+
+
+/* Keep logos sharp */
+.carousel-card img {
+    filter:
+        drop-shadow(
+            0 8px 16px
+            rgba(11, 64, 120, 0.12)
+        ) !important;
 }
