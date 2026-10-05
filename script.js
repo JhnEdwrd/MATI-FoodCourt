@@ -60,7 +60,7 @@ const stalls = [
     {
         name: "Plato Wraps",
         tagline: "Fresh & Flavorful Wraps",
-        logo: "TENANT LOGO/Plato.jpg",
+        logo: "TENANT LOGO/plato.jpg",
         menu: "TENANT MENU/PLATO WRAPS_2026-09-10.jpg"
     },
     {
