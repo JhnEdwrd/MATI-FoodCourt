@@ -13,7 +13,7 @@ const stalls = [
         name: "ATE RICA'S BACSILOG",
         tagline: "Bacsilog & Filipino Favorites",
         logo: "TENANT LOGO/BACSILOG.png",
-        menu: "TENANT MENU/ATE RICA'S.jpg"
+        menu: "TENANT MENU/ATE RICA.jpg"
     },
     {
         name: "Casa Daza Specials",
